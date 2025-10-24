@@ -25,10 +25,10 @@ client = commands.Bot(command_prefix='!', intents=intents)
 @client.event
 async def on_ready():
     print(f'{client.user} is online!')
-    # Set status: Online with custom activity
+    # Set status: Online • Playing Made By Awesome Dev
     await client.change_presence(
         status=discord.Status.online,
-        activity=discord.Activity(type=discord.ActivityType.custom, name="Made By Awesome Dev")
+        activity=discord.Activity(type=discord.ActivityType.playing, name="Made By Awesome Dev")
     )
     # Sync slash commands globally (or use guild=discord.Object(id=YOUR_GUILD_ID) for testing)
     try:
@@ -46,6 +46,10 @@ async def say(interaction: discord.Interaction, string: str, channel: discord.Te
     await interaction.response.send_message("**Sent message**", ephemeral=True)
     # Send the string to the channel
     await channel.send(string)
+
+@client.tree.command(name='credits', description='Show credits')
+async def credits(interaction: discord.Interaction):
+    await interaction.response.send_message("Made By Awesome Dev this is a test i can make much cooler stuff")
 
 # Run the bot
 async def run_bot():
