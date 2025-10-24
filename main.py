@@ -28,7 +28,7 @@ async def on_ready():
     # Set status: Online with custom activity
     await client.change_presence(
         status=discord.Status.online,
-        activity=discord.Activity(type=discord.ActivityType.custom, name="Custom - Made By Awesome Dev")
+        activity=discord.Activity(type=discord.ActivityType.custom, name="Made By Awesome Dev")
     )
     # Sync slash commands globally (or use guild=discord.Object(id=YOUR_GUILD_ID) for testing)
     try:
